@@ -1,8 +1,10 @@
 def first_under(numbers, limit)
-  numbers.each do |number|
-    return number if number < limit
-  end
-
+  #refactored code
+  numbers.find { |number| return number if number < limit }
+  #original code
+  # numbers.each do |number|
+  #   return number if number < limit
+  # end
   nil
 end
 
