@@ -12,13 +12,16 @@ def containing_quotes(sentences)
 end
 
 def balance(expenses, starting_balance)
-  remaining_balance = starting_balance
-
-  expenses.each do |expense|
-    remaining_balance -= expense
-  end
-
-  remaining_balance
+  #Refactored Code
+  expenses.reduce(starting_balance) { |balance, expenses| balance - expenses }
+  #Original Code
+  # remaining_balance = starting_balance
+  #
+  # expenses.each do |expense|
+  #   remaining_balance -= expense
+  # end
+  #
+  # remaining_balance
 end
 
 def even_length_word(words)
