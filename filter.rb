@@ -1,11 +1,14 @@
 def odd_integers(numbers)
-  odds = []
-
-  numbers.each do |number|
-    odds << number if number.odd?
-  end
-
-  odds
+  #Refactored Code
+  numbers.select { |number| number.odd? }
+  #Original Code
+  # odds = []
+  #
+  # numbers.each do |number|
+  #   odds << number if number.odd?
+  # end
+  #
+  # odds
 end
 
 def long_strings(strings, minimum_length)
