@@ -9,11 +9,13 @@ def first_under(numbers, limit)
 end
 
 def starts_with(strings, letter)
-  strings.each do |string|
-    if string =~ /\A#{letter}/i
-      return string
-    end
-  end
-
+  #Refactored code
+  strings.find { |string| return string if string =~ /\A#{letter}/i }
+  #original code
+  # strings.each do |string|
+  #   if string =~ /\A#{letter}/i
+  #     return string
+  #   end
+  # end
   nil
 end
