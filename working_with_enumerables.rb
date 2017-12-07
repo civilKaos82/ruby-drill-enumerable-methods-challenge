@@ -1,62 +1,84 @@
 def containing_quotes(sentences)
-  sentences_with_quotes = []
-
-  sentences.each do |sentence|
-    sentences_with_quotes << sentence if contains_quote?(sentence)
-  end
-
-  sentences_with_quotes
+  #Refactored Code
+  sentences.map { |sentence| sentence if contains_quote?(sentence) }.compact
+  #Original Code
+  # sentences_with_quotes = []
+  #
+  # sentences.each do |sentence|
+  #   sentences_with_quotes << sentence if contains_quote?(sentence)
+  # end
+  #
+  # sentences_with_quotes
 end
 
 def balance(expenses, starting_balance)
-  remaining_balance = starting_balance
-
-  expenses.each do |expense|
-    remaining_balance -= expense
-  end
-
-  remaining_balance
+  #Refactored Code
+  expenses.reduce(starting_balance) { |balance, expenses| balance - expenses }
+  #Original Code
+  # remaining_balance = starting_balance
+  #
+  # expenses.each do |expense|
+  #   remaining_balance -= expense
+  # end
+  #
+  # remaining_balance
 end
 
 def even_length_word(words)
-  words.each do |word|
-    return word if word.length.even? && !word.empty?
-  end
+  #Refactored Code
+  words.find { |word| return word if word.length.even? && !word.empty? }
+  #Original Code
+  # words.each do |word|
+  #   return word if word.length.even? && !word.empty?
+  # end
 
   nil
 end
 
 def snippets(sentences, desired_word_count = 3)
-  snipped_sentences = []
-
-  sentences.each do |sentence|
-    snipped_sentences << snippet(sentence, desired_word_count)
-  end
-
-  snipped_sentences
+  #Refactored Code
+  sentences.map { |sentence| snippet(sentence, desired_word_count) }
+  #Original Code
+  # snipped_sentences = []
+  #
+  # sentences.each do |sentence|
+  #   snipped_sentences << snippet(sentence, desired_word_count)
+  # end
+  #
+  # snipped_sentences
 end
 
 def initials(names)
-  names_as_initials = []
-
-  names.each do |name|
-    names_as_initials << convert_to_initials(name)
-  end
-
-  names_as_initials
+  #Refactored Code
+  names.map { |name| convert_to_initials(name) }
+  #Original Code
+  # names_as_initials = []
+  #
+  # names.each do |name|
+  #   names_as_initials << convert_to_initials(name)
+  # end
+  #
+  # names_as_initials
 end
 
 def pair_abbreviations(pair_data)
+  #Refactored Code
   pairs = {}
-
-  pair_data.each do |data|
-    abbreviation = data[0]
-    full_form    = data[1]
-
-    pairs[full_form] = abbreviation
-  end
-
+  pairs_hash = pair_data.map { |data| pairs[data[1]]=data[0] }
   pairs
+  # full_form = pair_data.map { |data| data[1] }
+
+  #Original Code
+  # pairs = {}
+  #
+  # pair_data.each do |data|
+  #   abbreviation = data[0]
+  #   full_form    = data[1]
+  #
+  #   pairs[full_form] = abbreviation
+  # end
+  #
+  # pairs
 end
 
 
