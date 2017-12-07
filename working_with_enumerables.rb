@@ -36,36 +36,49 @@ def even_length_word(words)
 end
 
 def snippets(sentences, desired_word_count = 3)
-  snipped_sentences = []
-
-  sentences.each do |sentence|
-    snipped_sentences << snippet(sentence, desired_word_count)
-  end
-
-  snipped_sentences
+  #Refactored Code
+  sentences.map { |sentence| snippet(sentence, desired_word_count) }
+  #Original Code
+  # snipped_sentences = []
+  #
+  # sentences.each do |sentence|
+  #   snipped_sentences << snippet(sentence, desired_word_count)
+  # end
+  #
+  # snipped_sentences
 end
 
 def initials(names)
-  names_as_initials = []
-
-  names.each do |name|
-    names_as_initials << convert_to_initials(name)
-  end
-
-  names_as_initials
+  #Refactored Code
+  names.map { |name| convert_to_initials(name) }
+  #Original Code
+  # names_as_initials = []
+  #
+  # names.each do |name|
+  #   names_as_initials << convert_to_initials(name)
+  # end
+  #
+  # names_as_initials
 end
 
 def pair_abbreviations(pair_data)
+  #Refactored Code
   pairs = {}
-
-  pair_data.each do |data|
-    abbreviation = data[0]
-    full_form    = data[1]
-
-    pairs[full_form] = abbreviation
-  end
-
+  pairs_hash = pair_data.map { |data| pairs[data[1]]=data[0] }
   pairs
+  # full_form = pair_data.map { |data| data[1] }
+
+  #Original Code
+  # pairs = {}
+  #
+  # pair_data.each do |data|
+  #   abbreviation = data[0]
+  #   full_form    = data[1]
+  #
+  #   pairs[full_form] = abbreviation
+  # end
+  #
+  # pairs
 end
 
 
