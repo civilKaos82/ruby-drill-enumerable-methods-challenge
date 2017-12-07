@@ -25,9 +25,12 @@ def balance(expenses, starting_balance)
 end
 
 def even_length_word(words)
-  words.each do |word|
-    return word if word.length.even? && !word.empty?
-  end
+  #Refactored Code
+  words.find { |word| return word if word.length.even? && !word.empty? }
+  #Original Code
+  # words.each do |word|
+  #   return word if word.length.even? && !word.empty?
+  # end
 
   nil
 end
